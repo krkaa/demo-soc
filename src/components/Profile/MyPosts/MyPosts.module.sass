@@ -1,0 +1,22 @@
+.posts
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: 0.5fr
+    grid-template-areas: "headTxt" "form" "post"
+    grid-gap: 10px
+
+    &_h3
+        grid-area: headTxt
+        margin-bottom: 0
+        font-weight: 500
+
+    .posts_form
+    grid-area: form
+    .form
+        button
+            position: relative
+
+            right: -94%
+
+        textarea
+            width: 100%

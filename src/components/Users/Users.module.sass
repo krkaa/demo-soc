@@ -1,0 +1,95 @@
+.userItem
+  display: grid
+  grid-template-columns: 2fr 10fr
+  margin-top: 20px
+  &_area
+    display: grid
+    grid-template-columns: 1fr 1fr
+    width: 50%
+    border: 3px solid rgba(#222222, .3)
+    border-radius: 10px
+    padding: 5px
+    .location
+      text-align: right
+      line-height: 1.65
+      margin-top: 15px
+      font-weight: 500
+    .information
+      .status
+        margin-top: 40px
+      .userName
+        font-weight: 600
+        font-size: 18px
+  &_user
+    text-align: center
+    line-height: 1.65
+    .photo img
+      width: 60px
+      width: 60px
+      height: auto
+      border-radius: 10em
+
+.pageNumbers
+  span
+    margin-right: 7px
+    cursor: pointer
+    font-size: 18px
+    transition: color .175s ease
+    &:hover
+      color: #4A76A8
+  .selectedPage
+    font-weight: 600
+    font-size: 20px
+
+
+button
+  display: inline-block
+  border: none
+  color: #fff
+  text-decoration: none
+  background-color: #4A76A8
+  padding: 10px 15px
+  font-size: 11px
+  text-transform: uppercase
+  font-weight: 600
+  letter-spacing: 1px
+  border-radius: 2px
+  text-align: center
+  position: relative
+  outline: none
+  transition: background-color .1s ease
+  cursor: pointer
+
+  &::after
+    transition: background-color .2s ease
+    position: absolute
+    content: ''
+    height: 4px
+    bottom: 0
+    width: 100%
+    background-color: darken(#4A76A8, 50%)
+    opacity: .18
+    border-bottom-left-radius: 2px
+    border-bottom-right-radius: 2px
+    left: 0
+
+  &:focus, &:hover
+    text-decoration: none
+    color: #fff
+
+  &:hover, &:disabled
+    background-color: lighten(#4A76A8, 5%)
+
+    &::after
+      opacity: .22
+
+  &:active
+    background-color: darken(#4A76A8, 5%)
+
+    &::after
+      opacity: .32
+
+textarea
+  border: #666 1px solid
+  outline: none
+
