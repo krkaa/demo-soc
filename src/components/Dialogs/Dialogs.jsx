@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.sass';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-
+import AddMessageForm from "./AddMessageForm";
 
 const Dialogs = (props) => {
     let dialogElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
@@ -10,14 +10,9 @@ const Dialogs = (props) => {
     let messageElements = props.messages
         .map(m => <Message message={m.message} id={m.id}/>);
 
-    let onMessageClick = () => {
-        props.onMessageClick();
+    const addNewMessage = (values) => {
+        props.onMessageClick(values.newMessageText)
     };
-
-    let onMessageChange = (e) => {
-        let text = e.target.value;
-        props.onMessageChange(text);
-    }
 
     return (
         <div className={s.dialogs}>
@@ -26,16 +21,7 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 {messageElements}
-                <form className={s.form}>
-                    <div>
-                    <textarea onChange={onMessageChange}
-                              value={props.newMessageText}
-                    />
-                    </div>
-                    <div>
-                        <button onClick={onMessageClick}>Add message</button>
-                    </div>
-                </form>
+                <AddMessageForm onSubmit={addNewMessage} />
             </div>
         </div>
     )

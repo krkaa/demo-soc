@@ -1,0 +1,33 @@
+.app-wrapper
+    display: grid
+    grid-template-areas: "header header" "nav content"
+    grid-template-rows: 1fr
+    grid-template-columns: 2fr 10fr
+    grid-gap: 1vw
+    width: 100vw
+    &-content
+      grid-area: content
+      background-color: #fff
+
+form
+  label
+    position: relative
+    width: 100%
+    margin-top: 4px
+    span
+      font-size: 14px
+      color: black
+      opacity: .7
+      text-align: right
+    input, textarea
+      background-color: rgba(255,255,255,.6)
+      border-radius: 2px
+      border: 1px solid black
+      padding: 9px 15px
+      display: block
+      color: black
+      margin-bottom: 5px
+      &:focus
+        background-color: rgba(#fff, .8)
+        transition: background-color .3s ease
+

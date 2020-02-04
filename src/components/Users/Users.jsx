@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Users.module.sass'
 import userPhoto from '../../assets/images/UnvailablePhoto.png'
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
 
@@ -11,8 +10,7 @@ let Users = (props) => {
     let page = [];
     for (let i = 1; i <= pageCount; i++) {
         page.push(i);
-    }
-    ;
+    };
 
     let maxSize1 = {
         currentPage: props.currentPage <= 1

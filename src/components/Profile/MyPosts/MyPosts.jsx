@@ -1,21 +1,14 @@
 import React from 'react';
 import s from './MyPosts.module.sass';
 import Post from "./Post/Post";
+import {AddNewPostForm} from "./AddNewPostForm";
 
 const MyPosts = (props) => {
 
-    let postElements = props.state.posts.map( p => <Post message={p.message} likeCount={p.likeCount} key={p.id} id={p.id}/>)
+    let postElements = props.state.posts.map( p => <Post message={p.message} likeCount={p.likeCount} key={p.id} id={p.id}/>);
 
-    let newPostElement = React.createRef();
-
-
-    let addPost = () => {
-        props.addPost();
-    };
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+    let addNewPost = (values) => {
+        props.addPost(values.newPost);
     };
 
     return (
@@ -23,10 +16,7 @@ const MyPosts = (props) => {
                 <h3 className={s.posts_h3}>My posts</h3>
                 <div className={s.posts_form}>
                     <div className={s.form}>
-                        <textarea ref={newPostElement}
-                                  onChange={onPostChange}
-                                  value={props.state.newPostText}/>
-                        <button onClick={addPost}>send</button>
+                       <AddNewPostForm onSubmit={addNewPost}/>
                     </div>
                 </div>
                 <div className={s.post}>
@@ -34,6 +24,6 @@ const MyPosts = (props) => {
                 </div>
             </div>
     );
-}
+};
 
 export default MyPosts;

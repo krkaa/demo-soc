@@ -31,7 +31,7 @@ const ProfileInfo = (props) => {
                             </div>
                             :
                             <div>
-                                <p>Статус:</p>
+                                <p>Статус занятости:</p>
                                 <img src={working}/>
                             </div>}
                     </div>
