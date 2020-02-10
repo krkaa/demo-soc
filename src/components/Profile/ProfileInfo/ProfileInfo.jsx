@@ -6,10 +6,16 @@ import working from '../../../assets/images/working.png';
 import ProfileStatusWithHook from "./ProfileStatusWithHook";
 import UserImg from "../../../common/UserImg/UserImg";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
     if (!profile) {
         return <Preloader/>
     }
+
+    const onSavePhoto = (e) => {
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0])
+        }
+    };
 
     return (
         <div>
@@ -19,6 +25,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
             <div className={s.mainInfo}>
                 <div className={s.avatar}>
                     <UserImg userImg={profile.photos.large} />
+                    { isOwner && <input type={"file"} onChange={onSavePhoto}/>}
                 </div>
                 <div className={s.description}>
                     <h2>{profile.fullName}</h2>

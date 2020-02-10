@@ -1,7 +1,7 @@
 import React, {Suspense, lazy} from 'react';
 import './App.sass';
 import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter, Route, withRouter, Switch} from "react-router-dom";
+import {HashRouter, Route, withRouter, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -72,11 +72,11 @@ const AppContainer = compose(
     connect(mapStateToProps, {initializeApp}))(App);
 
 const SocialApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 };
 
 export default SocialApp;
