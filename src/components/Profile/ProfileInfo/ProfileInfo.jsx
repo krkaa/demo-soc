@@ -3,30 +3,31 @@ import s from './ProfileInfo.module.sass';
 import Preloader from "../../../common/Preloader/Preloader";
 import lookingJob from '../../../assets/images/lookingJob.png';
 import working from '../../../assets/images/working.png';
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHook from "./ProfileStatusWithHook";
+import UserImg from "../../../common/UserImg/UserImg";
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Preloader/>
     }
 
     return (
         <div>
             <div className={s.profileImg}>
-                <img src="https://www.freewebheaders.com/wp-content/gallery/mountains-snow/snow-mountains-blue-sky-and-lake-panoramic-web-header-.jpg"/>
+                <img src="https://www.panosphotographia.com/wp-content/uploads/2019/01/Syrp-BTS-Greek-Skies-II-134-1024x557-1024x200.jpg"/>
             </div>
             <div className={s.mainInfo}>
                 <div className={s.avatar}>
-                    <img src={props.profile.photos.large}/>
+                    <UserImg userImg={profile.photos.large} />
                 </div>
                 <div className={s.description}>
-                    <h2>{props.profile.fullName}</h2>
-                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                    <h2>{profile.fullName}</h2>
+                    <ProfileStatusWithHook status={status} updateStatus={updateStatus}/>
                     <div className={s.lookJob}>
-                        {props.profile.lookingForAJob
+                        {profile.lookingForAJob
                             ?
                             <div>
-                                <p>Статус поиска: {props.profile.lookingForAJobDescription}</p>
+                                <p>Статус поиска: {profile.lookingForAJobDescription}</p>
                                 <img src={lookingJob}/>
                             </div>
                             :
@@ -37,14 +38,14 @@ const ProfileInfo = (props) => {
                     </div>
                     <p>Контакты:</p>
                     <ul>
-                        <li>facebook: {props.profile.contacts.facebook}</li>
-                        <li>website: {props.profile.contacts.website}</li>
-                        <li>vk: {props.profile.contacts.vk}</li>
-                        <li>twitter: {props.profile.contacts.twitter}</li>
-                        <li>instagram: {props.profile.contacts.instagram}</li>
-                        <li>youtube: {props.profile.contacts.youtube}</li>
-                        <li>github: {props.profile.contacts.github}</li>
-                        <li>mainLink: {props.profile.contacts.mainLink}</li>
+                        <li>facebook: {profile.contacts.facebook}</li>
+                        <li>website: {profile.contacts.website}</li>
+                        <li>vk: {profile.contacts.vk}</li>
+                        <li>twitter: {profile.contacts.twitter}</li>
+                        <li>instagram: {profile.contacts.instagram}</li>
+                        <li>youtube: {profile.contacts.youtube}</li>
+                        <li>github: {profile.contacts.github}</li>
+                        <li>mainLink: {profile.contacts.mainLink}</li>
                     </ul>
                 </div>
             </div>

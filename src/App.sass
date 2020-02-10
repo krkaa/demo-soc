@@ -4,7 +4,7 @@
     grid-template-rows: 1fr
     grid-template-columns: 2fr 10fr
     grid-gap: 1vw
-    width: 100vw
+    width: 98.8785vw
     &-content
       grid-area: content
       background-color: #fff
@@ -31,3 +31,53 @@ form
         background-color: rgba(#fff, .8)
         transition: background-color .3s ease
 
+button
+  display: inline-block
+  border: none
+  color: #fff
+  text-decoration: none
+  background-color: #4A76A8
+  padding: 10px 15px
+  font-size: 11px
+  text-transform: uppercase
+  font-weight: 600
+  letter-spacing: 1px
+  border-radius: 2px
+  text-align: center
+  position: relative
+  outline: none
+  transition: background-color .1s ease
+  cursor: pointer
+
+  &::after
+    transition: background-color .2s ease
+    position: absolute
+    content: ''
+    height: 4px
+    bottom: 0
+    width: 100%
+    background-color: darken(#4A76A8, 50%)
+    opacity: .18
+    border-bottom-left-radius: 2px
+    border-bottom-right-radius: 2px
+    left: 0
+
+  &:focus, &:hover
+    text-decoration: none
+    color: #fff
+
+  &:hover, &:disabled
+    background-color: lighten(#4A76A8, 5%)
+
+    &::after
+      opacity: .22
+
+  &:active
+    background-color: darken(#4A76A8, 5%)
+
+    &::after
+      opacity: .32
+
+textarea
+  border: #666 1px solid
+  outline: none

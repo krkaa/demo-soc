@@ -11,18 +11,20 @@ import {
     getCurrentPage,
     getFollowInProgress,
     getIsFetching,
-    getPageSize,
+    getPageSize, getPortionSize,
     getTotalUsersCount,
     getUsers
 } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+        let {requestUsers, currentPage, pageSize} = this.props;
+        requestUsers(currentPage, pageSize);
     }
 
     onChangePage = (p) => {
-        this.props.requestUsers(p, this.props.pageSize);
+        let {requestUsers, pageSize} = this.props;
+        requestUsers(p, pageSize);
     };
 
     render() {
@@ -36,6 +38,7 @@ class UsersContainer extends React.Component {
                    unfollow={this.props.unfollow}
                    follow={this.props.follow}
                    followInProgress={this.props.followInProgress}
+                   portionSize={this.props.portionSize}
             />
         </>
     }
@@ -48,7 +51,8 @@ let mapStateToProps = (state) => {
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followInProgress: getFollowInProgress(state)
+        followInProgress: getFollowInProgress(state),
+        portionSize: getPortionSize(state)
     }
 };
 
