@@ -8,6 +8,30 @@
     width: 30px
     height: 30px
 
+.statusDeactive
+  border: 1px solid rgba(black, .6)
+  background-color: rgba(255,255,255,.6)
+  border-radius: 2px
+  width: max-content
+  padding: 6px 15px
+  display: block
+  color: black
+  margin-top: 5px
+  margin-bottom: 5px
+
+.statusActive
+  input
+    background-color: rgba(255,255,255,.6)
+    border-radius: 2px
+    border: 1px solid black
+    padding: 9px 15px
+    display: block
+    color: black
+    margin-bottom: 5px
+    &:focus
+      background-color: rgba(#fff, .8)
+      transition: background-color .3s ease
+
 .mainInfo
   display: grid
   grid-template-rows: 1fr
@@ -25,6 +49,13 @@
 
   .description
     grid-area: desc
+
+    button
+      margin-top: 5px
+      margin-bottom: 15px
+
+    ul
+      list-style-type: none
 
     h2
       margin: 0
