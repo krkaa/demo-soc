@@ -1,7 +1,7 @@
 import React, {Suspense, lazy} from 'react';
 import './App.sass';
 import Navbar from "./components/Navbar/Navbar";
-import {HashRouter, Route, withRouter, Switch} from "react-router-dom";
+import {Route, withRouter, Switch, Redirect, BrowserRouter} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -54,6 +54,11 @@ class App extends React.Component {
                             <Route path='/news' component={News}/>
                             <Route path='/music' component={Music}/>
                             <Route path='/settings' component={Settings}/>
+                            <Redirect exact from="/" to="/profile" />
+                            <Route
+                                path='*'
+                                render={() => <div>404 NOT FOUND</div>}
+                            />
                         </Switch>
                     </Suspense>
                 </div>
@@ -72,11 +77,11 @@ const AppContainer = compose(
     connect(mapStateToProps, {initializeApp}))(App);
 
 const SocialApp = (props) => {
-    return <HashRouter>
+    return <BrowserRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </HashRouter>
+    </BrowserRouter>
 };
 
 export default SocialApp;
