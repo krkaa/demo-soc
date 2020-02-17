@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styles from './Paginator.module.sass';
 import cn from "classnames";
 
@@ -19,14 +19,6 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onChangePage, portionS
 
     return <div>
         <div className={styles.paginators}>
-            {/*{
-                page.slice(maxSize1.currentPage, maxSize2.currentPage).map(p => {
-                    return <span className={currentPage === p && styles.selectedPage}
-                                 onClick={(e) => {
-                                     onChangePage(p)
-                                 }}>{p}</span>
-                })
-            }*/}
             {portionNumber > 1 &&
             <button onClick={() => {
                 setPortionNumber(portionNumber - 1)
